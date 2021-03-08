@@ -1,0 +1,47 @@
+body {
+  background: url('/concert_bg.jpeg') no-repeat center center fixed;
+  background-size: cover;  
+}
+
+.title {    
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-size: 60px;
+  color: lightgray;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.loader {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+}
+
+.concertList {  
+  width: 800px;  
+  margin:auto;  
+  background-color: black;
+  border-radius: 20px;
+}
+
+.concertListItem {     
+  width: 100%;  
+  padding: 50px;
+  padding-top: 70px;
+}
+
+.concertListItem img {
+  margin: auto;
+  width: 100%;
+  height: 480px;
+}
+
+.concertListItem .caption {
+  padding-top: 30px;
+  background-color: black;
+  color: white;
+}
