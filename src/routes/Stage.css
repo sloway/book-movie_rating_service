@@ -1,0 +1,47 @@
+.stage {
+  position: fixed;
+  left:0px;
+  top:0px;
+  width:1920px;
+  height:1080px;
+  margin: auto;
+  background: url('/stage_bg.jpeg') no-repeat center center fixed;
+  background-size: cover;    
+}
+
+.title {    
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-size: 60px;
+  color: lightgray;
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+
+.streaming {  
+  position: fixed;    
+  left: 10px;
+  top: 200px;
+  width: 1280px;
+  height: 720px;    
+  background-color: gray;
+}
+
+.videoChat {
+  position: fixed;  
+  left: 1310px;
+  top: 150px;
+  width: 590px;
+  height: 480px;  
+  background-color: gray;
+}
+
+.fanTalk {  
+  position: fixed;
+  left: 1310px;
+  top: 650px;  
+  width: 590px;  
+  height: 400px;
+  margin:auto;  
+  background-color: yellow;  
+}

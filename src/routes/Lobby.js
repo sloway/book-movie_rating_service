@@ -17,23 +17,25 @@ class ConcertBanner extends React.Component {
   }
 }
 
+// 임시로 작성한 콘서트 정보입니다. 나중에는 서버에서 가져와야합니다.
+// 아래 항목들 외에도 추가로 정보들이 더 필요하게 될겁니다.
+// 어떤 정보들이 필요한지 잘 생각해보고 도연님과 맞춰주세요.
+const concertList = [
+  { id: "cct1001", title: "Map Of The Soul Tour", artist:"BTS", poster: '/concert/bts.jpeg' },
+  { id: "cct1002", title: "In Your Area World Tour", artist:"BLACKPINK", poster: '/concert/blackpink.jpeg' },
+  { id: "cct1003", title: "Sweetener World Tour", artist:"Ariana Grander", poster: '/concert/ariana_grande.jpeg'}      
+]  
+
 class Lobby extends React.Component {  
-  constructor(props) {
-    console.log("const")
+  constructor(props) {    
     super(props);
-    this.state = {
-      isLoading: true,
+    this.state = {      
       concertList: []            
     };
     this.currentIndex = 0;        
     this.handleKey = this.handleKey.bind(this)
   }  
-  getConcerts() {   
-    let concertList = [
-      { id: "cct1001", title: "Map Of The Soul Tour", artist:"BTS", poster: '/concert/bts.jpeg' },
-      { id: "cct1002", title: "In Your Area World Tour", artist:"BLACKPINK", poster: '/concert/blackpink.jpeg' },
-      { id: "cct1003", title: "Sweetener World Tour", artist:"Ariana Grander", poster: '/concert/ariana_grande.jpeg'}      
-    ]    
+  getConcerts() {     
     /*
      TODO : Get concert list from server and assign to conertList
      Http request modules are XMLHttpRequest, Fetch, Axios, Jquery.get or post, ...
@@ -53,7 +55,8 @@ class Lobby extends React.Component {
         // So I saved current index at every onSelect event and use here         
         console.log(this.currentIndex)
         this.props.history.push({
-          pathname: "/about"          
+          pathname: "/stage",
+          state: concertList[this.currentIndex]
         });        
         break;
       default:
@@ -71,17 +74,13 @@ class Lobby extends React.Component {
     this.currentIndex = selectedIndex;
   };
   render() {         
-    const { isLoading, concertList} = this.state;    
+    const { concertList } = this.state;    
 
-    return (      
-      <section className="container-fluid">
-        <section className="title">Enjoy your favorite artist at Home!!!</section>        
-        {isLoading ? (
-          <div className="loader">
-            <span className="loader__text">Loading...</span>
-          </div>
-        ) : (
-          <div className="concertList">
+    return ( 
+      <section className="lobby">
+        <section className="container-fluid">
+          <section className="title">Enjoy your favorite artist at Home!!!</section>                 
+          <section className="concertList">
             <Carousel ref={(ref) => {this.carousel = ref}} id="concertList" onSelect={this.onSelect.bind(this)}>            
             {concertList.map((concert) => {                          
               return (                  
@@ -91,9 +90,9 @@ class Lobby extends React.Component {
               );
             })}
             </Carousel>
-          </div>
-       )}       
-      </section>
+          </section>        
+        </section>  
+      </section>                  
     );
   }
 }
